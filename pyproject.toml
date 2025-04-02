@@ -18,7 +18,6 @@ dependencies = [
     "evaluate>=0.4.3",
     "onnx>=1.17.0",
     "onnxruntime>=1.20.1",
-    "onnxruntime-gpu>=1.20.1 ; sys_platform == 'linux'",
     "opencv-python>=4.11.0.86",
     "optimum>=1.24.0",
     "pyclipper>=1.3.0.post6",
