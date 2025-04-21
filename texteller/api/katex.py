@@ -17,6 +17,20 @@ def _rm_dollar_surr(content):
 
 
 def to_katex(formula: str) -> str:
+    """
+    Convert LaTeX formula to KaTeX-compatible format.
+
+    This function processes a LaTeX formula string and converts it to a format
+    that is compatible with KaTeX rendering. It removes unsupported commands
+    and structures, simplifies LaTeX environments, and optimizes the formula
+    for web display.
+
+    Args:
+        formula: LaTeX formula string to convert
+
+    Returns:
+        KaTeX-compatible formula string
+    """
     res = formula
     # remove mbox surrounding
     res = change_all(res, r'\mbox ', r' ', r'{', r'}', r'', r'')

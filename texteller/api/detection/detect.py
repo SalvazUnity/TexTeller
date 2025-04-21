@@ -28,6 +28,27 @@ _config = {
 
 
 def latex_detect(img_path: str, predictor: InferenceSession) -> List[Bbox]:
+    """
+    Detect LaTeX formulas in an image and classify them as isolated or embedded.
+
+    This function uses an ONNX model to detect LaTeX formulas in images. The model
+    identifies two types of LaTeX formulas:
+    - 'isolated': Standalone LaTeX formulas (typically displayed equations)
+    - 'embedding': Inline LaTeX formulas embedded within text
+
+    Args:
+        img_path: Path to the input image file
+        predictor: ONNX InferenceSession model for LaTeX detection
+
+    Returns:
+        List of Bbox objects representing the detected LaTeX formulas with their
+        positions, classifications, and confidence scores
+
+    Example:
+        >>> from texteller.api import load_latexdet_model, latex_detect
+        >>> model = load_latexdet_model()
+        >>> bboxes = latex_detect("path/to/image.png", model)
+    """
     transforms = Compose(_config["preprocess"])
     inputs = transforms(img_path)
     inputs_name = [var.name for var in predictor.get_inputs()]

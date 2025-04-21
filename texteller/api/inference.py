@@ -61,14 +61,14 @@ def img2latex(
     Returns:
         List of LaTeX or KaTeX strings corresponding to each input image
 
-    Example usage:
+    Example:
         >>> import torch
         >>> from texteller import load_model, load_tokenizer, img2latex
-
+        >>>
         >>> model = load_model(model_path=None, use_onnx=False)
         >>> tokenizer = load_tokenizer(tokenizer_path=None)
         >>> device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+        >>>
         >>> res = img2latex(model, tokenizer, ["path/to/image.png"], device=device, out_format="katex")
     """
     assert isinstance(images, list)
@@ -132,7 +132,47 @@ def paragraph2md(
     num_beams=1,
 ) -> str:
     """
-    Input a mixed image of formula text and output str (in markdown syntax)
+    Convert an image containing both text and mathematical formulas to markdown format.
+
+    This function processes a mixed-content image by:
+    1. Detecting mathematical formulas using a latex detection model
+    2. Masking detected formula areas and detecting text regions using OCR
+    3. Recognizing text in the detected regions
+    4. Converting formula regions to LaTeX using the latex recognition model
+    5. Combining all detected elements into a properly formatted markdown string
+
+    Args:
+        img_path: Path to the input image containing text and formulas
+        latexdet_model: ONNX InferenceSession for LaTeX formula detection
+        textdet_model: OCR text detector model
+        textrec_model: OCR text recognition model
+        latexrec_model: TexTeller model for LaTeX formula recognition
+        tokenizer: Tokenizer for the LaTeX recognition model
+        device: The torch device to use (defaults to available GPU or CPU)
+        num_beams: Number of beams for beam search during LaTeX generation
+
+    Returns:
+        Markdown formatted string containing the recognized text and formulas
+
+    Example:
+        >>> from texteller import load_latexdet_model, load_textdet_model, load_textrec_model, load_tokenizer, paragraph2md
+        >>>
+        >>> # Load all required models
+        >>> latexdet_model = load_latexdet_model()
+        >>> textdet_model = load_textdet_model()
+        >>> textrec_model = load_textrec_model()
+        >>> latexrec_model = load_model()
+        >>> tokenizer = load_tokenizer()
+        >>>
+        >>> # Convert image to markdown
+        >>> markdown_text = paragraph2md(
+        ...     img_path="path/to/mixed_content_image.jpg",
+        ...     latexdet_model=latexdet_model,
+        ...     textdet_model=textdet_model,
+        ...     textrec_model=textrec_model,
+        ...     latexrec_model=latexrec_model,
+        ...     tokenizer=tokenizer,
+        ... )
     """
     img = cv2.imread(img_path)
     corners = [tuple(img[0, 0]), tuple(img[0, -1]), tuple(img[-1, 0]), tuple(img[-1, -1])]
