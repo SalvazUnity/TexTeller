@@ -1,4 +1,3 @@
-import pytest
 import logging
 from texteller.globals import Globals
 
