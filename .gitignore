@@ -320,6 +320,7 @@ poetry.toml
 pyrightconfig.json
 
 ### VisualStudioCode ###
+**/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -343,3 +344,6 @@ pyrightconfig.json
 uv.lock
 **/train_result
 **/*.onnx
+**/*.png
+**/*.jpg
+**/augraphy_cache
