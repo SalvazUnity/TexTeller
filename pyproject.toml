@@ -24,6 +24,9 @@ dependencies = [
     "torchvision>=0.21.0",
     "transformers==4.45.2",
     "wget>=3.2",
+    "optimum[onnxruntime]>=1.24.0",
+    "python-multipart>=0.0.20",
+    "ray[serve]>=2.44.1",
 ]
 
 [tool.hatch.version]
@@ -62,15 +65,8 @@ packages = ["texteller"]
 texteller = "texteller.cli:cli"
 
 [project.optional-dependencies]
-onnxruntime = [
-    "optimum[onnxruntime]>=1.24.0",
-]
 onnxruntime-gpu = [
     "onnxruntime-gpu>=1.21.0",
-]
-server = [
-    "python-multipart>=0.0.20",
-    "ray[serve]>=2.44.1",
 ]
 test = [
     "pytest>=8.3.5",
