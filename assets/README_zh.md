@@ -152,7 +152,7 @@ print(response.text)
 TexTeller的公式检测模型在3415张中文资料图像和8272张[IBEM数据集](https://zenodo.org/records/4757865)图像上训练。
 
 <div align="center">
-    <img src="./assets/det_rec.png" width=250>
+    <img src="./det_rec.png" width=250>
 </div>
 
 我们在Python接口中提供了公式检测接口，详见[接口文档](https://oleehyo.github.io/TexTeller/)。
