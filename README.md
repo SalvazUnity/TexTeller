@@ -56,37 +56,43 @@ TexTeller was trained with **80M image-formula pairs** (previous dataset can be 
 </tr>
 </table>
 
-## 🔄 Change Log
+## 📮 Change Log
 
-- 📮[2024-06-06] **TexTeller3.0 released!** The training data has been increased to **80M** (**10x more than** TexTeller2.0 and also improved in data diversity). TexTeller3.0's new features:
+- [2024-06-06] **TexTeller3.0 released!** The training data has been increased to **80M** (**10x more than** TexTeller2.0 and also improved in data diversity). TexTeller3.0's new features:
 
   - Support scanned image, handwritten formulas, English(Chinese) mixed formulas.
 
   - OCR abilities in both Chinese and English for printed images.
 
-- 📮[2024-05-02] Support **paragraph recognition**.
+- [2024-05-02] Support **paragraph recognition**.
 
-- 📮[2024-04-12] **Formula detection model** released!
+- [2024-04-12] **Formula detection model** released!
 
-- 📮[2024-03-25] TexTeller2.0 released! The training data for TexTeller2.0 has been increased to 7.5M (15x more than TexTeller1.0 and also improved in data quality). The trained TexTeller2.0 demonstrated **superior performance** in the test set, especially in recognizing rare symbols, complex multi-line formulas, and matrices.
+- [2024-03-25] TexTeller2.0 released! The training data for TexTeller2.0 has been increased to 7.5M (15x more than TexTeller1.0 and also improved in data quality). The trained TexTeller2.0 demonstrated **superior performance** in the test set, especially in recognizing rare symbols, complex multi-line formulas, and matrices.
 
   > [Here](./assets/test.pdf) are more test images and a horizontal comparison of various recognition models.
 
 ## 🚀 Getting Started
 
-1. Install the project's dependencies:
+1. Install uv:
 
    ```bash
-   pip install texteller
+   pip install uv
    ```
 
-2. If your are using CUDA backend, you may need to install `onnxruntime-gpu`:
+2. Install the project's dependencies:
 
    ```bash
-   pip install texteller[onnxruntime-gpu]
+   uv pip install texteller
    ```
 
-3. Run the following command to start inference:
+3. If your are using CUDA backend, you may need to install `onnxruntime-gpu`:
+
+   ```bash
+   uv pip install texteller[onnxruntime-gpu]
+   ```
+
+4. Run the following command to start inference:
 
    ```bash
    texteller inference "/path/to/image.{jpg,png}"
@@ -164,7 +170,7 @@ Please setup your environment before training:
 1. Install the dependencies for training:
 
    ```bash
-   pip install texteller[train]
+   uv pip install texteller[train]
    ```
 
 2. Clone the repository:

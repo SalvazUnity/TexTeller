@@ -74,19 +74,25 @@ TexTeller 使用 **8千万图像-公式对** 进行训练（前代数据集可�
 
 ## 🚀 快速开始
 
-1. 安装项目依赖：
+1. 安装uv：
 
    ```bash
-   pip install texteller
+   pip install uv
    ```
 
-2. 若使用 CUDA 后端，可能需要安装 `onnxruntime-gpu`：
+2. 安装项目依赖：
 
    ```bash
-   pip install texteller[onnxruntime-gpu]
+   uv pip install texteller
    ```
 
-3. 运行以下命令开始推理：
+3. 若使用 CUDA 后端，可能需要安装 `onnxruntime-gpu`：
+
+   ```bash
+   uv pip install texteller[onnxruntime-gpu]
+   ```
+
+4. 运行以下命令开始推理：
 
    ```bash
    texteller inference "/path/to/image.{jpg,png}"
@@ -96,7 +102,7 @@ TexTeller 使用 **8千万图像-公式对** 进行训练（前代数据集可�
 
 ## 🌐 网页演示
 
-运行命令：
+命令行运行：
 
 ```bash
 texteller web
@@ -164,7 +170,7 @@ TexTeller的公式检测模型在3415张中文资料图像和8272张[IBEM数据�
 1. 安装训练依赖：
 
    ```bash
-   pip install texteller[train]
+   uv pip install texteller[train]
    ```
 
 2. 克隆仓库：
