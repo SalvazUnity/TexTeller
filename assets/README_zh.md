@@ -191,7 +191,7 @@ TexTeller的公式检测模型在3415张中文资料图像和8272张[IBEM数据�
    accelerate launch train.py
    ```
 
-训练参数可通过[`train_config.yaml`](./examples/train_texteller/train_config.yaml)调整。
+训练参数可通过[`train_config.yaml`](../examples/train_texteller/train_config.yaml)调整。
 
 ## 📅 计划列表
 
